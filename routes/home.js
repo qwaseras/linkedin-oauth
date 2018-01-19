@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+var $ = require("jquery");
 
 function home(req,res) {
   res.statusCode = 200;

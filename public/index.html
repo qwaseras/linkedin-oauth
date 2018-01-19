@@ -1,5 +1,6 @@
 <html>
   <head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
       function onLinkedInFrameworkLoad() {
         IN.Event.on(IN, "auth", OnLinkedInAuth);
@@ -8,9 +9,13 @@
           IN.API.Profile('me').result(ShowProfileData);
       }
       function ShowProfileData(profile) {
-          var name=profile.formatted-name;
-          var lastName=profile.lastName;
-          var headline=profile.headline;
+        var profile = profile.values[0];
+        var firstName=profile.firstName;
+        var lastName=profile.lastName;
+        var headline=profile.headline;
+        var id=profile.id;
+        var pictureUrl=profile.pictureUrl;
+          $('.container').append('<h1>'+firstName+' '+lastName+'</h1><h2>'+headline+'</h2><h2>ID: '+id+'</h2><br /> <img src='+pictureUrl+'>')
       }
     </script>
     <script type="text/javascript" src="//platform.linkedin.com/in.js">
@@ -20,5 +25,6 @@
   </head>
   <body>
     <script type="in/Login"></script>
+    <div class="container"></div>
   </body>
 </html>

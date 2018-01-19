@@ -1,1 +1,5 @@
-linkedin-oauth
+# linkedin-oauth
+## RUN:
+```
+node server.js
+```
