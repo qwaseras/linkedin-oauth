@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <script>
+      function onLinkedInFrameworkLoad() {
+        IN.Event.on(IN, "auth", OnLinkedInAuth);
+      }
+      function OnLinkedInAuth() {
+          IN.API.Profile('me').result(ShowProfileData);
+      }
+      function ShowProfileData(profile) {
+          var name=profile.formatted-name;
+          var lastName=profile.lastName;
+          var headline=profile.headline;
+      }
+    </script>
+    <script type="text/javascript" src="//platform.linkedin.com/in.js">
+        api_key: 86v4p0gij195a1
+        onLoad:  onLinkedInFrameworkLoad
+    </script>
+  </head>
+  <body>
+    <script type="in/Login"></script>
+  </body>
+</html>
